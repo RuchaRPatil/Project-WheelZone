@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.wheelzone.model.Car;
@@ -38,11 +40,9 @@ public class CarServiceImpl implements CarService{
 	}
 	
 	@Override
-	public List<Car> getAllCars() {
-		
-		List<Car> carlist = carRepository.findAll();
-		
-		return carlist;
+	public Page<Car> getAllCars(Pageable pageable) {
+	    return carRepository.findAll(pageable);
 	}
+
 
 }

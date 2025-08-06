@@ -2,6 +2,9 @@ package com.wheelzone.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.wheelzone.model.Company;
 
 public interface CompanyService {
@@ -10,8 +13,9 @@ public interface CompanyService {
 
 	Company getCompany(int id);
 
-	List<Company> getCompanys();
+	Page<Company> getCompanys(Pageable pageable);
 
+	
 	
 
 }
