@@ -1,5 +1,8 @@
 package com.wheelzone.serviceImpl;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,29 @@ public class CompanyServiceImpl implements CompanyService {
 	public Company addCompany(Company company) {
 		Company save = companyRepository.save(company);
 		return save;
+	}
+	
+	@Override
+	public Company getCompany(int id) {
+		
+		Optional<Company> optional = companyRepository.findById(id);
+		
+		if(optional.isPresent())
+		{
+			Company company = optional.get();
+			
+			return company;
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public List<Company> getCompanys() {
+		
+		List<Company> list = companyRepository.findAll();
+		
+		return list;
 	}
 
 }
