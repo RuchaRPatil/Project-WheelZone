@@ -40,6 +40,7 @@ public class CompanyController {
 	}
 	
 	//Delete: http://localhost:9090/api/companies/{id}
+	//
 	@DeleteMapping(value = "/companies/{id}")
 	public String deleteCompanyRecorde(@PathVariable Integer id)
 	{
