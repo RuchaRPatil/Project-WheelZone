@@ -1,6 +1,11 @@
 package com.wheelzone.serviceImpl;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.wheelzone.model.Company;
@@ -19,6 +24,27 @@ public class CompanyServiceImpl implements CompanyService {
 		Company save = companyRepository.save(company);
 		return save;
 	}
+	
+	@Override
+	public Company getCompany(int id) {
+		
+		Optional<Company> optional = companyRepository.findById(id);
+		
+		if(optional.isPresent())
+		{
+			Company company = optional.get();
+			
+			return company;
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public Page<Company> getCompanys(Pageable pageable) {
+	    return companyRepository.findAll(pageable);
+	}
+
 
 	@Override
 	public Company updateCompany(Integer id, Company updateCompany) {
