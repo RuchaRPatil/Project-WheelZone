@@ -25,6 +25,11 @@ public class CarController {
 	
 	@Autowired
 	private CarService carService;
+	
+	public void m1()
+	{
+		System.out.println("Hello");
+	}
 
 	// URL : http://localhost:9090/api/cars
 	
