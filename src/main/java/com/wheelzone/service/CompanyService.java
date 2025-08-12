@@ -19,8 +19,15 @@ public interface CompanyService {
 
 	Company getCompany(int id);
 
-	Page<Company> getCompanys(Pageable pageable);
+	
 
+
+	List<Company> getCompanys(Integer page, Integer size);
+
+
+	String addCompanyToCar(Integer companyId, Integer carId);
+
+	
 	
 
 	

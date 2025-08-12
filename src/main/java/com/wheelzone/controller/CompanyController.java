@@ -82,16 +82,29 @@ public class CompanyController {
 	
 	// URL : http://localhost:9090/api/companies
 	
-	@GetMapping(value = "/companies")
-	public ResponseEntity<Page<Company>> getCompanys(
-	        @RequestParam(defaultValue = "0") int page,
-	        @RequestParam(defaultValue = "5") int size) {
+	@GetMapping(value = "/companies-by-page")
+	public List<Company> getCompanys(
+	        @RequestParam(defaultValue = "0") Integer page,
+	        @RequestParam(defaultValue = "5") Integer size) 
+	{
+		 List<Company> companies = companyService.getCompanys(page, size);
 
-	    Pageable pageable = PageRequest.of(page, size);
-	    Page<Company> companyPage = companyService.getCompanys(pageable);
 
-	    return new ResponseEntity<>(companyPage, HttpStatus.OK);
+	    return companies;
 	}
+	
+	//url: http://localhost:9090/api/companies-add-car
+	@PostMapping(value = "/companies-add-car")
+	public String addCarToCompany(@RequestParam Integer companyId, @RequestParam Integer carId) 
+	{
+		String message = companyService.addCompanyToCar(companyId,carId );
+		
+		return message;
+	}
+	
+	
+	
+	
 
 
 }
