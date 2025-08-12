@@ -11,11 +11,18 @@ public interface CompanyService {
 
 	Company addCompany(Company company);
 
+
+	Company updateCompany(Integer id, Company updateCompany);
+
+	String deleteCompanyRecorde(Integer id);
+
+
 	Company getCompany(int id);
 
 	Page<Company> getCompanys(Pageable pageable);
 
 	
+
 	
 
 }

@@ -11,8 +11,16 @@ public interface CarService {
 
 	Car addCars(Car car);
 
+
+	Car updateCarRecorde(Integer id, Car updateCar);
+
+	String deleteCarRecorde(Integer id);
+
+	
+
 	Car getCar(int id);
 
 	Page<Car> getAllCars(Pageable pageable);
+
 
 }
