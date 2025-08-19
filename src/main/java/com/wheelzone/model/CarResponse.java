@@ -1,40 +1,30 @@
 package com.wheelzone.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-@Entity
-public class Car
-
-
+public class CarResponse
 {
-	@Id
-	
 	private Integer carId;
 	private String carName;
 	private String color;
 	private Double price;
 	private Integer quantity;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Company company;
+	private Integer companyId;
+	private String companyName;
 	
-	public Car() {
+	public CarResponse() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Car(Integer carId, String carName, String color, Double price, Integer quantity, Company company) {
+	public CarResponse(Integer carId, String carName, String color, Double price, Integer quantity, Integer companyId,
+			String companyName) {
 		super();
 		this.carId = carId;
 		this.carName = carName;
 		this.color = color;
 		this.price = price;
 		this.quantity = quantity;
-		this.company = company;
+		this.companyId = companyId;
+		this.companyName = companyName;
 	}
 
 	public Integer getCarId() {
@@ -77,19 +67,23 @@ public class Car
 		this.quantity = quantity;
 	}
 
-	public Company getCompany() {
-		return company;
+	public Integer getCompanyId() {
+		return companyId;
 	}
 
-	public void setCompany(Company company) {
-		this.company = company;
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
 	}
 
-	@Override
-	public String toString() {
-		return "Car [carId=" + carId + ", carName=" + carName + ", color=" + color + ", price=" + price + ", quantity="
-				+ quantity + ", company=" + company + "]";
+	public String getCompanyName() {
+		return companyName;
 	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	
+	
 	
 	
 
